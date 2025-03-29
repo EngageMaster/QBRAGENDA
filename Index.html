@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex | Biopharma MEA - Q1 Business Review Agenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /*------------------------------------*\
+          :ROOT / VARIABLES
+        \*------------------------------------*/
+        :root {
+            /* Color Palette */
+            --primary-color: #00529b;
+            --primary-darker: #003b70;
+            --accent-color: #007bff;
+            --hero-bg-start: #e8f4fd;
+            --hero-bg-end: #ffffff;
+            --hero-text-color: var(--primary-darker);
+            --text-color: #343a40;
+            --light-text-color: #ffffff;
+            --border-color: #dee2e6;
+            --break-bg-color: #f8f9fa;
+            --tag-marketing: #007bff;
+            --tag-medical: #28a745;
+            --tag-access: #ffc107;
+            --tag-supply: #dc3545;
+            --tag-breakout: #6f42c1;
+            --tag-regulatory: #fd7e14;
+
+            --font-primary: 'Lato', sans-serif;
+
+            /* Typography Scale */
+            --base-font-size: 16px;
+            --h1-font-size: 3.0rem;
+            --h2-font-size: 2.1rem;
+            --h3-font-size: 1.7rem;
+            --h4-font-size: 1.4rem;
+            --small-font-size: 0.9rem;
+            --smaller-font-size: 0.85rem;
+
+            /* Layout Variables */
+            --container-width: 1140px;
+            --base-padding: 15px;
+            --section-padding: 60px 0;
+            --card-padding: 20px;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 82, 155, 0.07);
+        }
+
+        /*------------------------------------*\
+          RESET & BASE STYLES
+        \*------------------------------------*/
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: var(--base-font-size); }
+        body {
+            font-family: var(--font-primary); color: var(--text-color); background-color: #ffffff; line-height: 1.6;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; margin-bottom: 0.75em; line-height: 1.25; color: var(--primary-darker); }
+        h1 { font-size: var(--h1-font-size); font-weight: 900; }
+        h2 { font-size: var(--h2-font-size); }
+        h3 { font-size: var(--h3-font-size); margin-top: 1.5em; margin-bottom: 1em; }
+        h4 { font-size: var(--h4-font-size); margin-top: 1.2em; margin-bottom: 0.8em; color: var(--primary-color); }
+        p { margin-bottom: 1.1em; }
+        ul { list-style: none; padding-left: 0; }
+        a { color: var(--accent-color); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--primary-color); text-decoration: underline; }
+
+        /* Utility Classes */
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 var(--base-padding); }
+        .text-center { text-align: center; }
+
+        /*------------------------------------*\
+          HERO SECTION
+        \*------------------------------------*/
+        .hero-section {
+            background: linear-gradient(170deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 70%); padding: 100px var(--base-padding) 80px; text-align: center; position: relative; overflow: hidden;
+        }
+        .hero-section::before, .hero-section::after { content: ''; position: absolute; z-index: 1; border-radius: 45% 55% 60% 40% / 40% 50% 50% 60%; opacity: 0.6; }
+        .hero-section::before { bottom: -80px; left: -80px; width: 250px; height: 250px; background: rgba(0, 123, 255, 0.04); transform: rotate(-30deg); }
+        .hero-section::after { top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(0, 82, 155, 0.05); transform: rotate(20deg); }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; animation: fadeIn 1s ease-out; }
+        .company-info { margin-bottom: 25px; opacity: 0.9; }
+        .company-name { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0; letter-spacing: 0.5px; }
+        .event-title { font-size: var(--h1-font-size); color: var(--hero-text-color); margin-bottom: 15px; line-height: 1.15; margin-top: 25px; }
+        .event-subtitle { font-size: 1.4rem; font-weight: 400; color: var(--hero-text-color); opacity: 0.85; margin-bottom: 8px; }
+        .event-date { font-size: 1.2rem; font-weight: 400; color: var(--hero-text-color); opacity: 0.75; margin-bottom: 0; }
+
+        /*------------------------------------*\
+          AGENDA SECTION - General
+        \*------------------------------------*/
+        #agenda { padding: var(--section-padding); background-color: #ffffff; }
+        .agenda-section-title { text-align: center; margin-bottom: 40px; color: var(--primary-darker); font-size: var(--h2-font-size); position: relative; padding-bottom: 15px; }
+        .agenda-section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--accent-color); border-radius: 2px; }
+        .agenda-day-title { text-align: center; color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px; }
+        .qbr-title { text-align: center; color: var(--primary-darker); margin-top: 40px; margin-bottom: 25px; font-weight: 700; }
+
+        /* Grid Container */
+        .agenda-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+        /* Grid Item Base */
+        .agenda-item {
+            background-color: var(--light-text-color); border: 1px solid var(--border-color); border-left: 5px solid var(--border-color); border-radius: var(--border-radius); box-shadow: var(--box-shadow);
+            overflow: hidden; transition: border-left-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; display: grid; grid-template-columns: 1fr; gap: 8px var(--base-padding);
+            padding: var(--card-padding); opacity: 0; animation: fadeInUp 0.5s ease-out forwards;
+        }
+        .agenda-item:nth-child(odd) { animation-delay: 0.1s; }
+        .agenda-item:nth-child(even) { animation-delay: 0.15s; }
+        .agenda-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 82, 155, 0.1); border-left-color: var(--accent-color); }
+
+        /* Mobile Labels */
+        .agenda-item .label { display: block; font-weight: 700; font-size: var(--small-font-size); color: var(--primary-color); margin-bottom: 5px; }
+
+        /* Content Styling (Time, Session, Topics etc.) */
+        .agenda-item .time { font-weight: 700; color: var(--primary-color); font-size: 1rem; white-space: nowrap; }
+        .agenda-item .session .session-tag {
+            display: inline-block; padding: 4px 12px; border-radius: 15px; font-size: var(--smaller-font-size); font-weight: 700; color: var(--light-text-color); margin-top: 5px; transition: background-color 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .session-tag.marketing { background-color: var(--tag-marketing); }
+        .session-tag.medical   { background-color: var(--tag-medical); }
+        .session-tag.access    { background-color: var(--tag-access); color: var(--primary-darker); }
+        .session-tag.supply    { background-color: var(--tag-supply); }
+        .session-tag.breakout  { background-color: var(--tag-breakout); }
+        .session-tag.regulatory{ background-color: var(--tag-regulatory); }
+
+        /* Topics List Styling - With Bullets */
+        .agenda-item .topics ul { margin-top: 5px; padding-left: 5px; /* Base indent */ }
+        .agenda-item .topics li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 0.92rem; color: #495057; }
+        .agenda-item .topics li::before {
+             content: ''; position: absolute; left: 3px; top: 0.5em; transform: translateY(-50%); width: 7px; height: 7px; background-color: var(--accent-color); opacity: 0.7; border-radius: 50%;
+         }
+
+         /* Team/Presenter Styling - NO Icons */
+         .agenda-item .team, .agenda-item .presenter { font-size: var(--smaller-font-size); color: #555; line-height: 1.5; }
+         .agenda-item .team span, .agenda-item .presenter span { display: block; margin-bottom: 4px; padding-left: 2px; }
+
+
+        /* Break Item Styling */
+        .agenda-item.break {
+            background-color: var(--break-bg-color); text-align: center; font-weight: 700; color: var(--primary-color); padding: calc(var(--card-padding) * 0.7) var(--card-padding); font-size: 1rem; border-left-color: var(--accent-color);
+        }
+        .agenda-item.break .team, .agenda-item.break .presenter { display: none; }
+
+        /*------------------------------------*\
+          GRID LAYOUTS & RESPONSIVENESS
+        \*------------------------------------*/
+
+        /* --- Mobile Specific Styles (Including Team/Presenter Bullets) --- */
+        @media (max-width: 767px) {
+            /* Add padding for simulated list */
+            .agenda-item .team, .agenda-item .presenter {
+                 padding-left: 20px; /* Indent the whole block */
+                 position: relative; /* For positioning if needed */
+            }
+             /* Style name spans as list items with bullets, but exclude the label span */
+             .agenda-item .team span:not(.label),
+             .agenda-item .presenter span:not(.label) {
+                 display: list-item;
+                 list-style-type: disc; /* Or circle */
+                 list-style-position: outside;
+                 margin-left: 10px; /* Indent list items further */
+                 padding-left: 0; /* Reset default span padding */
+                 margin-bottom: 5px; /* Space between bullet points */
+             }
+             /* Ensure label is not styled as list item */
+              .agenda-item .team span.label,
+              .agenda-item .presenter span.label {
+                 display: block; /* Keep label as block */
+                 list-style-type: none; /* Ensure no bullet on label */
+                 margin-left: -20px; /* Counteract parent padding */
+                 margin-bottom: 8px; /* Space below label */
+              }
+              .agenda-item .presenter span:empty {
+                  display: none; /* Hide empty presenter spans */
+              }
+        }
+
+
+        /* --- Day 1 & Day 2 (Morning) Grid --- */
+        .functional-agenda .agenda-item:not(.break) { grid-template-columns: 1fr; } /* Default stack */
+
+        @media (min-width: 768px) {
+             .functional-agenda .agenda-item:not(.break) { grid-template-columns: 140px 150px 1fr 150px; align-items: start; text-align: left; }
+            .functional-agenda .agenda-item.break { grid-column: 1 / -1; margin-top: 5px; margin-bottom: 5px; }
+            .functional-agenda .agenda-item .label { display: none; }
+             .functional-agenda .agenda-item .time { padding-top: 2px; }
+             .functional-agenda .agenda-item .session,
+             .functional-agenda .agenda-item .topics,
+             .functional-agenda .agenda-item .team { padding-top: 0; padding-left: 0; /* Reset mobile padding */ }
+             .functional-agenda .agenda-item .session .session-tag { margin-top: 0; }
+             .functional-agenda .agenda-item .topics ul { margin-top: 0; padding-left: 5px; }
+             .functional-agenda .agenda-item .topics li { padding-left: 18px; }
+             .functional-agenda .agenda-item .topics li::before { left: 3px; }
+             .functional-agenda .agenda-item .team { text-align: left; }
+             /* Ensure team spans revert from list-item on desktop */
+             .functional-agenda .agenda-item .team span:not(.label) {
+                  display: block;
+                  list-style-type: none;
+                  margin-left: 0;
+                  padding-left: 2px;
+              }
+        }
+        @media (min-width: 992px) {
+            .functional-agenda .agenda-item:not(.break) { grid-template-columns: 150px 180px 1fr 180px; }
+        }
+
+        /* --- QBR Sessions Grid (Day 2 Afternoon) --- */
+        .qbr-agenda .agenda-item:not(.break) { grid-template-columns: 1fr; } /* Default stack */
+
+         @media (min-width: 768px) {
+            .qbr-agenda .agenda-item:not(.break) { grid-template-columns: 180px 1fr 200px; align-items: center; text-align: left; }
+            .qbr-agenda .agenda-item.break { grid-column: 1 / -1; margin-top: 5px; margin-bottom: 5px; }
+            .qbr-agenda .agenda-item .label { display: none; }
+            .qbr-agenda .agenda-item .time { padding-top: 0; }
+            .qbr-agenda .agenda-item .topics { font-weight: 600; }
+            .qbr-agenda .agenda-item .presenter { padding-top: 0; text-align: left; padding-left: 0; /* Reset mobile padding */}
+             /* Ensure presenter spans revert from list-item on desktop */
+             .qbr-agenda .agenda-item .presenter span:not(.label) {
+                  display: block;
+                  list-style-type: none;
+                  margin-left: 0;
+                  padding-left: 2px;
+              }
+             /* Special rule for last item with no presenter */
+             .qbr-agenda .agenda-item.no-presenter .topics { grid-column: 2 / -1; }
+         }
+         @media (min-width: 992px) {
+             .qbr-agenda .agenda-item:not(.break) { grid-template-columns: 200px 1fr 250px; }
+             .qbr-agenda .agenda-item.no-presenter .topics { grid-column: 2 / -1; }
+         }
+
+        /*------------------------------------*\
+          FOOTER
+        \*------------------------------------*/
+        .main-footer {
+            background-color: #051d35; color: rgba(255, 255, 255, 0.75); padding: 35px var(--base-padding); text-align: center; font-size: var(--small-font-size); margin-top: 70px;
+        }
+        .main-footer p { margin-bottom: 0; }
+        .main-footer a { color: rgba(255, 255, 255, 0.9); font-weight: 600; }
+        .main-footer a:hover { color: var(--light-text-color); }
+
+        /*------------------------------------*\
+          ANIMATIONS
+        \*------------------------------------*/
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <div class="company-info">
+                 <div class="company-name">Vertex | Biopharma MEA</div>
+            </div>
+            <h1 class="event-title">Q1 Business Review</h1>
+            <p class="event-subtitle">MEETING AGENDA</p>
+            <p class="event-date">April 15th - 16th, 2025</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="agenda">
+            <div class="container">
+                <h2 class="agenda-section-title">QBR Meeting Agenda</h2>
+
+                <div class="agenda-day functional-agenda">
+                    <h3 class="agenda-day-title">Day 1 (April 15th, 2025)</h3>
+                    <div class="agenda-grid">
+                        <div class="agenda-item">
+                            <div class="time"><span class="label">Time:</span>09:30 - 11:00 AM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag marketing">Marketing</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>CFTR function restoration narrative</li>
+                                    <li>Vanza Commercial Strategies & Key Messages</li>
+                                    <li>Patient Narrative & Patient Profiles & Aly US uptake</li>
+                                    <li>2025 International Marketing Activities</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Mohamed Shazli</span>
+                                <span>Richard Wadrup</span>
+                                <span>Full Team</span>
+                            </div>
+                        </div>
+                        <div class="agenda-item break">11:00 - 11:15 AM | Coffee Break</div>
+                        <div class="agenda-item">
+                            <div class="time"><span class="label">Time:</span>11:15 AM - 12:15 PM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag marketing">Marketing</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>Marketing Material's Approval process</li>
+                                    <li>Reactive Unbranded Materials</li>
+                                    <li>Marketing Material's Approval Status</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Mohamed Shazli</span>
+                                <span>Richard Wadrup</span>
+                            </div>
+                        </div>
+                        <div class="agenda-item break">12:15 - 01:30 PM | Launch Break</div>
+                        <div class="agenda-item">
+                            <div class="time"><span class="label">Time:</span>01:30 - 03:00 PM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag medical">Medical</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>Medical insights</li>
+                                    <li>2025 Medical Activities</li>
+                                    <li>CF Exceed Preparations</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Eslam Fouad</span>
+                                <span>Ilias Kirkinezos</span>
+                                <span>Mohamed Shantory</span>
+                                <span>Full Team</span>
+                            </div>
+                        </div>
+                        <div class="agenda-item break">03:00 - 03:15 PM | Coffee Break</div>
+                        <div class="agenda-item">
+                             <div class="time"><span class="label">Time:</span>03:15 - 04:15 AM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag access">Access</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>Affordability programs</li>
+                                    <li>KLD Pricing after LOE Updates</li>
+                                    <li>ALY Pricing updates (Fu Pricing)</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Mohamed Hamza</span>
+                                <span>Cristina Martin</span>
+                                <span>Mahmoud Alzoghby</span>
+                                <span>Mohamed Shadi</span>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="time"><span class="label">Time:</span>04:15 - 05:00 PM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag supply">Supply & Finance</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>Launch Lead Time</li>
+                                    <li>Trikafta COO Supply Plan</li>
+                                    <li>Trikafta / KLD Tabs TSL Supply Plan</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Osama Mady</span>
+                                <span>Saeed Mashinchi</span>
+                                <span>Commercial Team</span>
+                                <span>Regulatory & Finance Team</span>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="time"><span class="label">Time:</span>05:00 - 05:30 PM</div>
+                            <div class="session"><span class="label">Session:</span><span class="session-tag breakout">Supply Breakout</span></div>
+                            <div class="topics">
+                                <span class="label">Topics:</span>
+                                <ul>
+                                    <li>Supply Updates Breakout Session</li>
+                                </ul>
+                            </div>
+                            <div class="team">
+                                <span class="label">Team:</span>
+                                <span>Osama Mady</span>
+                            </div>
+                        </div>
+                    </div> </div> <div class="agenda-day">
+                     <h3 class="agenda-day-title">Day 2 (April 16th, 2025)</h3>
+
+                    <div class="functional-agenda">
+                        <div class="agenda-grid">
+                            <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>10:00 AM - 12:15 PM</div>
+                                <div class="session"><span class="label">Session:</span><span class="session-tag regulatory">Regulatory</span></div>
+                                <div class="topics">
+                                    <span class="label">Topics:</span>
+                                    <ul>
+                                        <li>Regulatory updates & Timelines</li>
+                                    </ul>
+                                </div>
+                                <div class="team">
+                                    <span class="label">Team:</span>
+                                    <span>Hani Saleh</span>
+                                    <span>VRTX Regulatory Team</span>
+                                    <span>Full Team</span>
+                                </div>
+                            </div>
+                            <div class="agenda-item break">12:15 - 01:45 PM | Launch Break</div>
+                        </div> </div> <div class="qbr-agenda">
+                        <h4 class="qbr-title">QBR Sessions</h4>
+                        <div class="agenda-grid">
+                             <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>01:45 - 01:50 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Welcome & Opening</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>Tamer Eissa</span>
+                                </div>
+                            </div>
+                            <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>01:50 - 02:20 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Portfolio Performance Executive Summary</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>M. Shazli & M. Alzoghby</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>02:20 - 02:45 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>2025 Challenges & Opportunities</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>M. Shazli & M. Alzoghby</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item break">02:45 - 03:00 PM | Coffee Break</div>
+                            <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>03:00 - 03:30 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Deep Dive Portfolio Performance Per Country</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>M. Shazli & M. Alzoghby</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>03:30 - 04:00 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Key Marketing Activities & Communication Materials</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>M. Shazli</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>04:00 - 04:30 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Key Medical Activities & Materials</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>M. Shantory</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item break">04:30 - 04:40 PM | Coffee Break</div>
+                             <div class="agenda-item">
+                                <div class="time"><span class="label">Time:</span>04:40 - 05:10 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Regulatory & OBIE Updates</div>
+                                <div class="presenter">
+                                    <span class="label">Presenter:</span>
+                                    <span>Hani Saleh</span>
+                                </div>
+                            </div>
+                             <div class="agenda-item no-presenter">
+                                <div class="time"><span class="label">Time:</span>05:10 - 05:15 PM</div>
+                                <div class="topics"><span class="label">Topic:</span>Wrap Up & Closing</div>
+                                </div>
+                        </div> </div> </div> </div> </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> CF Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
